@@ -12,11 +12,27 @@ def detect_loser_comp():
             return True
     except:
         pass
-
+from pynput.mouse import Button, Controller
+import time
 def klick_loser_comp_weg():
-    for _ in range(5):
-        time.sleep(0.1)
-        pyautogui.click(1500,1030)
+    
+
+
+    # Erstelle einen Mauscontroller
+    mouse = Controller()
+
+    # Bewege die Maus an eine Position (x=500, y=500)
+    mouse.position = (1500, 1000)
+
+    for _ in range(3):
+        # Warte kurz
+        time.sleep(0.5)
+
+        # Führe einen Linksklick aus
+        mouse.click(Button.left, 1)
+
+
+
 
 def losercomp():
     if detect_loser_comp():

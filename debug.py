@@ -1,46 +1,23 @@
 import pyautogui
-from PIL import Image
 import pytesseract
 
-# Tesseract-OCR Pfad (nur notwendig, wenn Tesseract nicht im PATH ist)
-# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+from pynput.mouse import Button, Controller
+import time
 
-# Definiere den Bereich für den Screenshot
-x1, y1 = 1678, 55
-x2, y2 = 1757, 89
+# Erstelle einen Mauscontroller
+mouse = Controller()
 
-# Berechne Breite und Höhe
-width = x2 - x1
-height = y2 - y1
+# Bewege die Maus an eine Position (x=500, y=500)
+mouse.position = (1500, 1000)
 
-# Erstelle Region für den Screenshot
-region = (x1, y1, width, height)
+# Warte kurz
+time.sleep(1)
 
-# Mache den Screenshot
-screenshot = pyautogui.screenshot(region=region)
+# Führe einen Linksklick aus
+mouse.click(Button.left, 1)
 
-# Speichern des Screenshots (optional)
-screenshot.save("screenshot.png")
+# Optional: Führe einen Doppelklick aus
+mouse.click(Button.left, 2)
 
-# OCR auf das Bild anwenden
-text = pytesseract.image_to_string(screenshot)
-
-# Erkannten Text
-text = "37 / 488"
-
-# Teile den Text bei " / "
-parts = text.split(" / ")
-
-# Konvertiere die Teile in ganze Zahlen
-try:
-    number1 = int(parts[0])
-    number2 = int(parts[1])
-    print(f"Erste Zahl: {number1}")
-    print(f"Zweite Zahl: {number2}")
-    if number 
-except ValueError as e:
-    print(f"Fehler beim Parsen der Zahlen: {e}")
-
-# Ausgabe des erkannten Textes
-print("Erkannter Text:")
-print(text)
+# Optional: Führe einen Rechtsklick aus
+mouse.click(Button.right, 1)

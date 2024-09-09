@@ -54,8 +54,8 @@ attack_found = False
 screen_width, screen_height = pyautogui.size()
 
 # Größe des Mittelteils (z.B. 200x200 px)
-middle_width = 200
-middle_height = 200
+middle_width = 100
+middle_height = 100
 
 # Berechne die Koordinaten für die Mitte des Bildschirms
 x = (screen_width // 2) - (middle_width // 2)
@@ -134,6 +134,8 @@ def check_am_I_still_on_worldmap():
         return False
 
 def world_map():
+    try_click_attack()
+
     if am_i_moving() == True:
         try_click_attack()
     else:
